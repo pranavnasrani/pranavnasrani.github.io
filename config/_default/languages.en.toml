@@ -1,0 +1,14 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Pranav Asrani"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+description = "Homepage, About, Blog"
+author = { bio = "A 9th grader, studying in Singapore, passionate about technology and science", image="pranav-final.png"}
+
