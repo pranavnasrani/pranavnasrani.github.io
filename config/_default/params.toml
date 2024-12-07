@@ -97,7 +97,7 @@ cardViewScreenWidth = false
 
 [firebase]
 
-apiKey = ${{ secrets.FIREBASE_API }}
+apiKey = "AIzaSyBiwFrjlm5MHKjdOvyMLKasokwR6HccdcY"
 authDomain = "pranav-site.firebaseapp.com"
 projectId = "pranav-site"
 storageBucket = "pranav-site.firebasestorage.app"
