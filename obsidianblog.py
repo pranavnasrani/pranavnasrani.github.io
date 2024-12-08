@@ -3,6 +3,7 @@ import re
 import shutil
 from tkinter import Tk, Label, Entry, Button, filedialog, messagebox, Listbox, Scrollbar
 from tkinterdnd2 import TkinterDnD, DND_FILES
+import subprocess
 
 # Function to process files
 def process_files():
@@ -79,34 +80,14 @@ def browse_files():
     dropped_files_label.config(text="\n".join(dropped_files))
 
 # Function to load existing posts in the destination folder
-# Function to load existing posts in the destination folder
 def load_posts():
     user_documents = os.path.expanduser(r"~\Documents")
     posts_folder = os.path.join(user_documents, "pranavasranisite", "content", "posts")
-    
-    # Print the actual path to debug
-    print(f"Looking for posts in: {posts_folder}")
-    
-    # Check if the posts folder exists
     if os.path.exists(posts_folder):
-        # Try to list directories inside the posts folder
         posts = [f for f in os.listdir(posts_folder) if os.path.isdir(os.path.join(posts_folder, f))]
-        
-        # Debugging: Print the list of posts found
-        if posts:
-            print(f"Found the following posts: {posts}")
-        else:
-            print("No post folders found.")
-        
-        # Clear previous list and load new posts
         post_listbox.delete(0, 'end')  # Clear previous list
         for post in posts:
             post_listbox.insert('end', post)  # Add each post folder to the listbox
-
-    else:
-        print(f"Post folder does not exist at the path: {posts_folder}")
-        messagebox.showerror("Error", "Posts folder not found.")
-
 
 # Function to delete selected post
 def delete_post():
@@ -124,18 +105,34 @@ def delete_post():
         shutil.rmtree(posts_folder)  # Delete the post folder
         load_posts()  # Reload the post list
 
-# Initialize the GUI
+# Function to execute Git commands
+def run_git_command(command):
+    try:
+        site_folder = os.path.expanduser(r"~\Documents\pranavasranisite")
+        result = subprocess.run(command, cwd=site_folder, shell=True, text=True, capture_output=True)
+        if result.returncode == 0:
+            messagebox.showinfo("Success", f"Git command executed:\n{result.stdout}")
+        else:
+            messagebox.showerror("Error", f"Git error:\n{result.stderr}")
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to run Git command:\n{str(e)}")
+
+def git_add_commit():
+    run_git_command('git add . && git commit -m "improvements, bug fixes"')
+
+def git_pull():
+    run_git_command('git pull')
+
+def git_push():
+    run_git_command('git push -u origin master')
+
 # Initialize the GUI
 root = TkinterDnD.Tk()
-root.title("Markdown and Image Processor with Post Manager")
-root.geometry("800x700")
-
-# Debugging: Check if the GUI initializes correctly
-print("GUI Initialized")
+root.title("Markdown and Image Processor with Git Integration")
+root.geometry("800x600")
 
 # Instructions
 Label(root, text="Drag and drop Markdown and image files below:").pack(pady=10)
-
 
 # Drop target area
 dropped_files_label = Label(root, text="Drop files here", bg="lightgray", relief="sunken", width=50, height=10)
@@ -156,8 +153,11 @@ target_folder_entry.pack(pady=5)
 process_button = Button(root, text="Process Files", command=process_files)
 process_button.pack(pady=20)
 
-# Placeholder for dropped files
-dropped_files = []
+# Git management section
+Label(root, text="Git Commands:").pack(pady=10)
+Button(root, text="Git Add & Commit", command=git_add_commit).pack(pady=5)
+Button(root, text="Git Pull", command=git_pull).pack(pady=5)
+Button(root, text="Git Push", command=git_push).pack(pady=5)
 
 # Post management section
 Label(root, text="Manage Posts:").pack(pady=10)
