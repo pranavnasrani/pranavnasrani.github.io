@@ -4,9 +4,14 @@ import shutil
 from tkinter import Tk, Label, Entry, Button, filedialog, messagebox, Listbox, Scrollbar
 from tkinterdnd2 import TkinterDnD, DND_FILES
 import subprocess
+from PIL import Image
 
-# Function to process files
+# Global variables
+featured_image_path = None
+dropped_files = []
+
 def process_files():
+    global featured_image_path, dropped_files
     target_folder_name = target_folder_entry.get()
     if not target_folder_name.strip():
         messagebox.showerror("Error", "Please enter a folder name.")
@@ -47,8 +52,6 @@ def process_files():
                     if os.path.exists(source_image_path):
                         target_image_path = os.path.join(target_folder, image)
                         shutil.copy(source_image_path, target_image_path)  # Copy the original image
-                        featured_image_path = os.path.join(target_folder, "featured.png")
-                        shutil.copy(source_image_path, featured_image_path)  # Duplicate as featured.png
                         first_image_handled = True
 
             # Write updated content to new Markdown file in target folder
@@ -56,24 +59,62 @@ def process_files():
             with open(target_md_path, "w", encoding="utf-8") as file:
                 file.write(content)
 
-        elif filename.endswith(".png"):
+        elif filename.endswith((".png", ".jpg", ".jpeg")):
             # Copy image files to target folder
             shutil.copy(filepath, target_folder)
 
+    # Handle featured image
+    if featured_image_path and os.path.exists(featured_image_path):
+        featured_target_path = os.path.join(target_folder, "featured.png")
+        # Convert to PNG if not already
+        if not featured_image_path.lower().endswith('.png'):
+            img = Image.open(featured_image_path)
+            img.save(featured_target_path, 'PNG')
+        else:
+            shutil.copy(featured_image_path, featured_target_path)
+
     messagebox.showinfo("Success", f"Files processed and saved to:\n{target_folder}")
 
-# Function to handle drag-and-drop
+    # Reset featured image and list of dropped files after processing
+    dropped_files = []
+    featured_image_path = None
+    dropped_files_label.config(text="Drop files here")
+    featured_image_label.config(text="No image selected")
+
+def select_featured_image():
+    global featured_image_path
+    initial_dir = os.path.expanduser(r"~\Documents\Obsidian Vault\posts")
+    filetypes = [
+        ("PNG files", "*.png"), 
+        ("JPEG files", "*.jpg *.jpeg"), 
+        ("All image files", "*.png *.jpg *.jpeg")
+    ]
+    
+    featured_image_path = filedialog.askopenfilename(
+        initialdir=initial_dir, 
+        title="Select Featured Image", 
+        filetypes=filetypes
+    )
+    
+    if featured_image_path:
+        featured_image_label.config(text=f"Selected: {os.path.basename(featured_image_path)}")
+    else:
+        featured_image_label.config(text="No image selected")
+
 def on_drop(event):
     global dropped_files
     dropped_files = event.data.split(" ")
     dropped_files_label.config(text="\n".join(dropped_files))
 
-# Function to browse files manually
 def browse_files():
     global dropped_files
     initial_dir = os.path.expanduser(r"~\Documents\Obsidian Vault\posts")
     filetypes = [("All files", "*.*")]
-    selected_files = filedialog.askopenfilenames(initialdir=initial_dir, title="Select Markdown or Image Files", filetypes=filetypes)
+    selected_files = filedialog.askopenfilenames(
+        initialdir=initial_dir, 
+        title="Select Markdown or Image Files", 
+        filetypes=filetypes
+    )
     
     # Update dropped_files and label
     dropped_files.extend(selected_files)
@@ -111,8 +152,6 @@ def push_to_github():
         # Handle other potential errors
         messagebox.showerror("Error", str(e))
 
-# Function to load existing posts in the destination folder
-# Function to load existing posts in the destination folder
 def load_posts():
     user_documents = os.path.expanduser(r"~\Documents")
     posts_folder = os.path.join(user_documents, "pranavasranisite", "content", "posts")
@@ -140,8 +179,6 @@ def load_posts():
         print(f"Post folder does not exist at the path: {posts_folder}")
         messagebox.showerror("Error", "Posts folder not found.")
 
-
-# Function to delete selected post
 def delete_post():
     selected_post = post_listbox.curselection()
     if not selected_post:
@@ -158,17 +195,12 @@ def delete_post():
         load_posts()  # Reload the post list
 
 # Initialize the GUI
-# Initialize the GUI
 root = TkinterDnD.Tk()
 root.title("Markdown and Image Processor with Post Manager")
-root.geometry("800x700")
-
-# Debugging: Check if the GUI initializes correctly
-print("GUI Initialized")
+root.geometry("800x800")  # Slightly increased height to accommodate all elements
 
 # Instructions
 Label(root, text="Drag and drop Markdown and image files below:").pack(pady=10)
-
 
 # Drop target area
 dropped_files_label = Label(root, text="Drop files here", bg="lightgray", relief="sunken", width=50, height=10)
@@ -185,15 +217,24 @@ Label(root, text="Enter new post folder:").pack(pady=10)
 target_folder_entry = Entry(root, width=40)
 target_folder_entry.pack(pady=5)
 
-# Process button
+# Process button (moved up)
 process_button = Button(root, text="Process Files", command=process_files)
 process_button.pack(pady=20)
 
+# Featured Image section
+Label(root, text="Featured Image:").pack(pady=5)
+
+# Featured image selection button
+featured_image_button = Button(root, text="Select Featured Image", command=select_featured_image)
+featured_image_button.pack(pady=5)
+
+# Label to show selected featured image
+featured_image_label = Label(root, text="No image selected")
+featured_image_label.pack(pady=5)
+
+# GitHub Push button
 github_push_button = Button(root, text="Push to GitHub", command=push_to_github)
 github_push_button.pack(pady=5)
-
-# Placeholder for dropped files
-dropped_files = []
 
 # Post management section
 Label(root, text="Manage Posts:").pack(pady=10)
@@ -215,5 +256,5 @@ load_button.pack(pady=5)
 delete_button = Button(root, text="Delete Selected Post", command=delete_post)
 delete_button.pack(pady=5)
 
-# Start the GUI event loop
+# Start the GUI event loop (only once!)
 root.mainloop()
