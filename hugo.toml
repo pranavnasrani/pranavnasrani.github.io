@@ -1,3 +1,6 @@
 baseURL = 'pranavnasrani.github.io/website'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
+[services]
+  [services.disqus]
+    shortname = 'pranavasrani'

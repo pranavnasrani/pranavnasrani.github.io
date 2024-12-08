@@ -20,6 +20,10 @@ enableEmoji = true
 [imaging]
   anchor = 'Center'
 
+[services]
+  [services.disqus]
+    shortname = 'pranavasrani'
+
 [taxonomies]
   tag = "tags"
   category = "categories"

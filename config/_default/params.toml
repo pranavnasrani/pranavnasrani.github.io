@@ -40,6 +40,7 @@ showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
 showHero = false
+showComments = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
 showBreadcrumbs = true
