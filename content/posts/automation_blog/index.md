@@ -525,3 +525,4 @@ delete_button.pack(pady=5)
 root.mainloop()
 ```
 
+[Download exe for Windows for automation script](main.exe)
