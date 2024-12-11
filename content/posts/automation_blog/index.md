@@ -22,7 +22,7 @@ Hey so i'm developing a program that will automate the task of taking my notes f
 
 
 This was my first attempt at it its quite simple and just correctly formats obsidian's markdown files and places them in the site folder without doing any git/github sync and pushes.
-!!![Image Description](Pasted%20image%2020241207185943.png)
+![Image Description](Pasted%20image%2020241207185943.png)
 
 
 **The final product**
@@ -31,7 +31,7 @@ After a few hours I finally included all the desired functionality and it looks 
 - featured image
 - listing all posts
 
-!!![Image Description](Pasted%20image%2020241208130848.png)
+![Image Description](Pasted%20image%2020241208130848.png)
 Its neat and convenient and the code is provided below:
 
 ```python
@@ -596,4 +596,4 @@ delete_button.pack(pady=5)
 root.mainloop()
 ```
 
-![Download exe for Windows for automation script](blog.exe)
+[Download exe for Windows for automation script](blog.exe)
