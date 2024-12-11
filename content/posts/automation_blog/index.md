@@ -1,16 +1,21 @@
 ---
-
-title: "Automation for Blog Posting"
-
+title: Setting up the Blog
 date: 2024-12-07
-
 draft: false
-
-description: "Trying to automate the task of putting blogs into hugo site template"
-
-tags: ["hugo", "developers", "obsidian", "python"]
-
+description: Trying to automate the task of putting blogs into hugo site template
+tags:
+  - hugo
+  - developers
+  - obsidian
+  - python
 ---
+I don't know why i'm making this blog, except for the sole reason of it also acting as my portfolio. However after seeing NetworkChuck's video on his blog pipeline [see here](https://www.youtube.com/watch?v=dnE7c0ELEH8), I wanted to do something similar. However I wanted to make it even more seamless than typing the blogs out in Obsidian then using some script to publish it. I wanted to make a GUI python script (since python is so easy to work with). Read on to see how I did that
+
+This blog will be a record of all my accomplishments and any other things I find worthy of sharing with the world.
+
+I have also integrated comments and likes and views into this blog system.
+
+
 **Trying to automate the task of putting blogs into hugo site template**
 Hey so i'm developing a program that will automate the task of taking my notes from obsidian and putting them on the Hugo/Blowfish website. Till now I had to do it manually using terminal but i've been working on a tkinter python program (cause python is so easy to work with)
 **Trying to automate the task of putting blogs into hugo site template**
@@ -36,13 +41,15 @@ import re
 
 import shutil
 
-from tkinter import Tk, Label, Entry, Button, filedialog, messagebox, Listbox, Scrollbar
+from tkinter import Tk, Label, Entry, Button, filedialog, messagebox, Listbox, Scrollbar, Frame
 
 from tkinterdnd2 import TkinterDnD, DND_FILES
 
 import subprocess
 
 from PIL import Image
+
+import json
 
   
 
@@ -51,6 +58,48 @@ from PIL import Image
 featured_image_path = None
 
 dropped_files = []
+
+config_file = "config.json"
+
+paths = {}
+
+  
+
+def load_or_set_paths():
+
+    global paths
+
+    if os.path.exists(config_file):
+
+        with open(config_file, "r") as file:
+
+            paths = json.load(file)
+
+    else:
+
+        user_documents = filedialog.askdirectory(title="Select Your Documents Directory")
+
+        obsidian_vault = filedialog.askdirectory(title="Select Your Obsidian Vault Directory")
+
+        site_repo = filedialog.askdirectory(title="Select Your Hugo Site Repository Directory")
+
+  
+
+        paths = {
+
+            "documents": user_documents,
+
+            "obsidian_vault": obsidian_vault,
+
+            "site_repo": site_repo
+
+        }
+
+  
+
+        with open(config_file, "w") as file:
+
+            json.dump(paths, file)
 
   
 
@@ -70,9 +119,7 @@ def process_files():
 
     # Define target folder path
 
-    user_documents = os.path.expanduser(r"~\Documents")
-
-    target_folder = os.path.join(user_documents, "pranavasranisite", "content", "posts", target_folder_name)
+    target_folder = os.path.join(paths["documents"], "pranavasranisite", "content", "posts", target_folder_name)
 
   
 
@@ -200,7 +247,7 @@ def select_featured_image():
 
     global featured_image_path
 
-    initial_dir = os.path.expanduser(r"~\Documents\Obsidian Vault\posts")
+    initial_dir = paths["obsidian_vault"]
 
     filetypes = [
 
@@ -246,7 +293,7 @@ def browse_files():
 
     global dropped_files
 
-    initial_dir = os.path.expanduser(r"~\Documents\Obsidian Vault\posts")
+    initial_dir = paths["obsidian_vault"]
 
     filetypes = [("All files", "*.*")]
 
@@ -274,7 +321,7 @@ def push_to_github():
 
         # Set the path to the site repository
 
-        site_path = os.path.expanduser(r"~/Documents/pranavasranisite")
+        site_path = paths["site_repo"]
 
         # Change to the repository directory
 
@@ -324,9 +371,7 @@ def push_to_github():
 
 def load_posts():
 
-    user_documents = os.path.expanduser(r"~\Documents")
-
-    posts_folder = os.path.join(user_documents, "pranavasranisite", "content", "posts")
+    posts_folder = os.path.join(paths["documents"], "pranavasranisite", "content", "posts")
 
     # Print the actual path to debug
 
@@ -380,9 +425,7 @@ def delete_post():
 
     post_name = post_listbox.get(selected_post)
 
-    user_documents = os.path.expanduser(r"~\Documents")
-
-    posts_folder = os.path.join(user_documents, "pranavasranisite", "content", "posts", post_name)
+    posts_folder = os.path.join(paths["documents"], "pranavasranisite", "content", "posts", post_name)
 
   
 
@@ -398,23 +441,43 @@ def delete_post():
 
 # Initialize the GUI
 
+load_or_set_paths()
+
+  
+
 root = TkinterDnD.Tk()
 
 root.title("Markdown and Image Processor with Post Manager")
 
-root.geometry("800x800")  # Slightly increased height to accommodate all elements
+root.geometry("800x800")
+
+  
+
+# Main layout frame
+
+main_frame = Frame(root)
+
+main_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+  
+
+# Left column for instructions, file dropping, and target folder
+
+left_frame = Frame(main_frame)
+
+left_frame.grid(row=0, column=0, sticky="n")
 
   
 
 # Instructions
 
-Label(root, text="Drag and drop Markdown and image files below:").pack(pady=10)
+Label(left_frame, text="Drag and drop Markdown and image files below:").pack(pady=10)
 
   
 
 # Drop target area
 
-dropped_files_label = Label(root, text="Drop files here", bg="lightgray", relief="sunken", width=50, height=10)
+dropped_files_label = Label(left_frame, text="Drop files here", bg="lightgray", relief="sunken", width=50, height=10)
 
 dropped_files_label.pack(pady=10)
 
@@ -426,7 +489,7 @@ dropped_files_label.dnd_bind("<<Drop>>", on_drop)
 
 # Browse files button
 
-browse_button = Button(root, text="Browse Files", command=browse_files)
+browse_button = Button(left_frame, text="Browse Files", command=browse_files)
 
 browse_button.pack(pady=5)
 
@@ -434,31 +497,23 @@ browse_button.pack(pady=5)
 
 # Target folder name input
 
-Label(root, text="Enter new post folder:").pack(pady=10)
+Label(left_frame, text="Enter new post folder:").pack(pady=10)
 
-target_folder_entry = Entry(root, width=40)
+target_folder_entry = Entry(left_frame, width=40)
 
 target_folder_entry.pack(pady=5)
 
   
 
-# Process button (moved up)
-
-process_button = Button(root, text="Process Files", command=process_files)
-
-process_button.pack(pady=20)
-
-  
-
 # Featured Image section
 
-Label(root, text="Featured Image:").pack(pady=5)
+Label(left_frame, text="Featured Image:").pack(pady=5)
 
   
 
 # Featured image selection button
 
-featured_image_button = Button(root, text="Select Featured Image", command=select_featured_image)
+featured_image_button = Button(left_frame, text="Select Featured Image", command=select_featured_image)
 
 featured_image_button.pack(pady=5)
 
@@ -466,29 +521,45 @@ featured_image_button.pack(pady=5)
 
 # Label to show selected featured image
 
-featured_image_label = Label(root, text="No image selected")
+featured_image_label = Label(left_frame, text="No image selected")
 
 featured_image_label.pack(pady=5)
 
   
 
+# Right column for actions and post management
+
+right_frame = Frame(main_frame)
+
+right_frame.grid(row=0, column=1, sticky="n")
+
+  
+
+# Process button
+
+process_button = Button(right_frame, text="Process Files", command=process_files)
+
+process_button.pack(pady=20)
+
+  
+
 # GitHub Push button
 
-github_push_button = Button(root, text="Push to GitHub", command=push_to_github)
+github_push_button = Button(right_frame, text="Push to GitHub", command=push_to_github)
 
-github_push_button.pack(pady=5)
+github_push_button.pack(pady=20)
 
   
 
 # Post management section
 
-Label(root, text="Manage Posts:").pack(pady=10)
+Label(right_frame, text="Manage Posts:").pack(pady=10)
 
   
 
 # Listbox to display posts
 
-post_listbox = Listbox(root, width=50, height=10)
+post_listbox = Listbox(right_frame, width=50, height=10)
 
 post_listbox.pack(pady=10)
 
@@ -496,7 +567,7 @@ post_listbox.pack(pady=10)
 
 # Scrollbar for the listbox
 
-scrollbar = Scrollbar(root, orient="vertical", command=post_listbox.yview)
+scrollbar = Scrollbar(right_frame, orient="vertical", command=post_listbox.yview)
 
 scrollbar.pack(side="right", fill="y")
 
@@ -506,7 +577,7 @@ post_listbox.config(yscrollcommand=scrollbar.set)
 
 # Load posts button
 
-load_button = Button(root, text="Load Posts", command=load_posts)
+load_button = Button(right_frame, text="Load Posts", command=load_posts)
 
 load_button.pack(pady=5)
 
@@ -514,15 +585,15 @@ load_button.pack(pady=5)
 
 # Delete post button
 
-delete_button = Button(root, text="Delete Selected Post", command=delete_post)
+delete_button = Button(right_frame, text="Delete Selected Post", command=delete_post)
 
 delete_button.pack(pady=5)
 
   
 
-# Start the GUI event loop (only once!)
+# Start the GUI event loop
 
 root.mainloop()
 ```
 
-[Download exe for Windows for automation script](main.exe)
+![Download exe for Windows for automation script](blog.exe)

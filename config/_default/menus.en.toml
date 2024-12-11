@@ -12,6 +12,5 @@ name = "Tags"
 pageRef = "tags"
 weight = 9999
 
-
 [[footer]]
 none = "none"

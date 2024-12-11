@@ -18,8 +18,8 @@ layout = "basic"
 [footer]
 showMenu = true
 showCopyright = true
-showThemeAttribution = false
-showAppearanceSwitcher = true
+showThemeAttribution = true
+showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
@@ -56,7 +56,7 @@ showTableOfContents = false
 showTaxonomies = false
 showAuthorsBadges = false
 showWordCount = true
-showZenMode = false
+showZenMode = true
 
 [list]
 showHero = false
