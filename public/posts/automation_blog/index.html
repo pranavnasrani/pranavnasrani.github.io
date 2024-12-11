@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Automation for Blog Posting &middot; Pranav Asrani</title>
-  <meta name="title" content="Automation for Blog Posting &middot; Pranav Asrani" />
+  <title>Setting up the Blog &middot; Pranav Asrani</title>
+  <meta name="title" content="Setting up the Blog &middot; Pranav Asrani" />
   
   <meta name="description" content="Trying to automate the task of putting blogs into hugo site template" />
   <meta name="keywords" content="hugo, developers, obsidian, python, " />
@@ -69,7 +69,7 @@
   
   <meta property="og:url" content="http://localhost:1313/posts/automation_blog/">
   <meta property="og:site_name" content="Pranav Asrani">
-  <meta property="og:title" content="Automation for Blog Posting">
+  <meta property="og:title" content="Setting up the Blog">
   <meta property="og:description" content="Trying to automate the task of putting blogs into hugo site template">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -85,7 +85,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/posts/automation_blog/featured.png">
-  <meta name="twitter:title" content="Automation for Blog Posting">
+  <meta name="twitter:title" content="Setting up the Blog">
   <meta name="twitter:description" content="Trying to automate the task of putting blogs into hugo site template">
 
   
@@ -94,8 +94,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Automation for Blog Posting",
-    "headline": "Automation for Blog Posting",
+    "name": "Setting up the Blog",
+    "headline": "Setting up the Blog",
     "description": "Trying to automate the task of putting blogs into hugo site template",
     
     "inLanguage": "en",
@@ -113,7 +113,7 @@
     "keywords": ["hugo","developers","obsidian","python"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "999"
+    "wordCount": "1192"
   }]
   </script>
 
@@ -419,7 +419,7 @@
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/posts/automation_blog/"
-      >Automation for Blog Posting</a
+      >Setting up the Blog</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -428,7 +428,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Automation for Blog Posting
+      Setting up the Blog
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -481,7 +481,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-12-07T00:00:00&#43;00:00">7 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span>999 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
+  <time datetime="2024-12-07T00:00:00&#43;00:00">7 December 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1192 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&middot;</span><span>
   
   
     
@@ -643,7 +643,10 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p><strong>Trying to automate the task of putting blogs into hugo site template</strong>
+          <p>I don&rsquo;t know why i&rsquo;m making this blog, except for the sole reason of it also acting as my portfolio. However after seeing NetworkChuck&rsquo;s video on his blog pipeline <a href="https://www.youtube.com/watch?v=dnE7c0ELEH8" target="_blank">see here</a>, I wanted to do something similar. However I wanted to make it even more seamless than typing the blogs out in Obsidian then using some script to publish it. I wanted to make a GUI python script (since python is so easy to work with). Read on to see how I did that</p>
+<p>This blog will be a record of all my accomplishments and any other things I find worthy of sharing with the world.</p>
+<p>I have also integrated comments and likes and views into this blog system.</p>
+<p><strong>Trying to automate the task of putting blogs into hugo site template</strong>
 Hey so i&rsquo;m developing a program that will automate the task of taking my notes from obsidian and putting them on the Hugo/Blowfish website. Till now I had to do it manually using terminal but i&rsquo;ve been working on a tkinter python program (cause python is so easy to work with)
 <strong>Trying to automate the task of putting blogs into hugo site template</strong></p>
 <p>This was my first attempt at it its quite simple and just correctly formats obsidian&rsquo;s markdown files and places them in the site folder without doing any git/github sync and pushes.
@@ -673,13 +676,15 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">shutil</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Tk</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Entry</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">messagebox</span><span class="p">,</span> <span class="n">Listbox</span><span class="p">,</span> <span class="n">Scrollbar</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Tk</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Entry</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">messagebox</span><span class="p">,</span> <span class="n">Listbox</span><span class="p">,</span> <span class="n">Scrollbar</span><span class="p">,</span> <span class="n">Frame</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tkinterdnd2</span> <span class="kn">import</span> <span class="n">TkinterDnD</span><span class="p">,</span> <span class="n">DND_FILES</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
@@ -688,6 +693,48 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl"><span class="n">featured_image_path</span> <span class="o">=</span> <span class="kc">None</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dropped_files</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">config_file</span> <span class="o">=</span> <span class="s2">&#34;config.json&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">paths</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_or_set_paths</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">paths</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_file</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">paths</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">user_documents</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Select Your Documents Directory&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">obsidian_vault</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Select Your Obsidian Vault Directory&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">site_repo</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Select Your Hugo Site Repository Directory&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">paths</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;documents&#34;</span><span class="p">:</span> <span class="n">user_documents</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;obsidian_vault&#34;</span><span class="p">:</span> <span class="n">obsidian_vault</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;site_repo&#34;</span><span class="p">:</span> <span class="n">site_repo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
@@ -707,9 +754,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># Define target folder path</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">user_documents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~\Documents&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">target_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_documents</span><span class="p">,</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">,</span> <span class="n">target_folder_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s2">&#34;documents&#34;</span><span class="p">],</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">,</span> <span class="n">target_folder_name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
@@ -837,7 +882,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">featured_image_path</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">initial_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~\Documents\Obsidian Vault\posts&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initial_dir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">&#34;obsidian_vault&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">filetypes</span> <span class="o">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">
@@ -883,7 +928,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">dropped_files</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">initial_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~\Documents\Obsidian Vault\posts&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">initial_dir</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">&#34;obsidian_vault&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">filetypes</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&#34;All files&#34;</span><span class="p">,</span> <span class="s2">&#34;*.*&#34;</span><span class="p">)]</span>
 </span></span><span class="line"><span class="cl">
@@ -911,7 +956,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1"># Set the path to the site repository</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">site_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~/Documents/pranavasranisite&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">site_path</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">&#34;site_repo&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1"># Change to the repository directory</span>
 </span></span><span class="line"><span class="cl">
@@ -961,9 +1006,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_posts</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">user_documents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~\Documents&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">posts_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_documents</span><span class="p">,</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posts_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s2">&#34;documents&#34;</span><span class="p">],</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># Print the actual path to debug</span>
 </span></span><span class="line"><span class="cl">
@@ -1017,9 +1060,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">post_name</span> <span class="o">=</span> <span class="n">post_listbox</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected_post</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">user_documents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;~\Documents&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">posts_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_documents</span><span class="p">,</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">,</span> <span class="n">post_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posts_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="s2">&#34;documents&#34;</span><span class="p">],</span> <span class="s2">&#34;pranavasranisite&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">,</span> <span class="s2">&#34;posts&#34;</span><span class="p">,</span> <span class="n">post_name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
@@ -1035,23 +1076,43 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Initialize the GUI</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">load_or_set_paths</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">root</span> <span class="o">=</span> <span class="n">TkinterDnD</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Markdown and Image Processor with Post Manager&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&#34;800x800&#34;</span><span class="p">)</span>  <span class="c1"># Slightly increased height to accommodate all elements</span>
+</span></span><span class="line"><span class="cl"><span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&#34;800x800&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Main layout frame</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&#34;both&#34;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Left column for instructions, file dropping, and target folder</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">left_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">main_frame</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">left_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&#34;n&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Instructions</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Drag and drop Markdown and image files below:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Drag and drop Markdown and image files below:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Drop target area</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">dropped_files_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Drop files here&#34;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&#34;lightgray&#34;</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="s2">&#34;sunken&#34;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dropped_files_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Drop files here&#34;</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&#34;lightgray&#34;</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="s2">&#34;sunken&#34;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">dropped_files_label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1063,7 +1124,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Browse files button</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">browse_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Browse Files&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">browse_files</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">browse_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Browse Files&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">browse_files</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">browse_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1071,31 +1132,23 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Target folder name input</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Enter new post folder:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Enter new post folder:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">target_folder_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">target_folder_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">target_folder_entry</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Process button (moved up)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">process_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Process Files&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">process_files</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">process_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Featured Image section</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Featured Image:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Featured Image:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Featured image selection button</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">featured_image_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Select Featured Image&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">select_featured_image</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">featured_image_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Select Featured Image&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">select_featured_image</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">featured_image_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1103,29 +1156,45 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Label to show selected featured image</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">featured_image_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;No image selected&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">featured_image_label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;No image selected&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">featured_image_label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Right column for actions and post management</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">right_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">main_frame</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">right_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&#34;n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Process button</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">process_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Process Files&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">process_files</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">process_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># GitHub Push button</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">github_push_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Push to GitHub&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">push_to_github</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">github_push_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Push to GitHub&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">push_to_github</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">github_push_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">github_push_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Post management section</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Manage Posts:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Label</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Manage Posts:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Listbox to display posts</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">post_listbox</span> <span class="o">=</span> <span class="n">Listbox</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">post_listbox</span> <span class="o">=</span> <span class="n">Listbox</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">post_listbox</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1133,7 +1202,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Scrollbar for the listbox</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">scrollbar</span> <span class="o">=</span> <span class="n">Scrollbar</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&#34;vertical&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">post_listbox</span><span class="o">.</span><span class="n">yview</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">scrollbar</span> <span class="o">=</span> <span class="n">Scrollbar</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&#34;vertical&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">post_listbox</span><span class="o">.</span><span class="n">yview</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">scrollbar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&#34;right&#34;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&#34;y&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1143,7 +1212,7 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Load posts button</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">load_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Load Posts&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">load_posts</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">load_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Load Posts&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">load_posts</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">load_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -1151,16 +1220,21 @@ Its neat and convenient and the code is provided below:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Delete post button</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">delete_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Delete Selected Post&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">delete_post</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">delete_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">right_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;Delete Selected Post&#34;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">delete_post</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">delete_button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Start the GUI event loop (only once!)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Start the GUI event loop</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</span></span></code></pre></div><p><a href="main.exe">Download exe for Windows for automation script</a></p>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="blog.exe" alt="Download exe for Windows for automation script" />
+      
+    </figure>
+</p>
 
           
           
@@ -1204,19 +1278,14 @@ Its neat and convenient and the code is provided below:</p>
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/geoguessr/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/first/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >GeoGuessr Game Won</span
+                  >Github Student Developer Pack</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1224,10 +1293,15 @@ Its neat and convenient and the code is provided below:</p>
                   
                 </span>
               </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
             </a>
-          
-        </span>
-        <span>
           
         </span>
       </div>

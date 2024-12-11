@@ -10,16 +10,6 @@
     <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Automation for Blog Posting</title>
-      <link>http://localhost:1313/posts/automation_blog/</link>
-      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/automation_blog/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/automation_blog/featured.png" />
-    </item>
-    
-    <item>
       <title>GeoGuessr Game Won</title>
       <link>http://localhost:1313/posts/geoguessr/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
@@ -37,6 +27,16 @@
       <guid>http://localhost:1313/posts/first/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/first/featured.png" />
+    </item>
+    
+    <item>
+      <title>Setting up the Blog</title>
+      <link>http://localhost:1313/posts/automation_blog/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/automation_blog/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/automation_blog/featured.png" />
     </item>
     
   </channel>
